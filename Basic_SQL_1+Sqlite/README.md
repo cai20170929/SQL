@@ -1,6 +1,6 @@
 # SQL Basics
-### SQLite, a software library which implements a SQL database engine. Use sqlite3 on Mac OS X / Linux terminal.
-
+### SQLite, a software library which implements a SQL database engine. #### Use sqlite3 on Mac OS X / Linux terminal.
+#### table
 
 ##### 
 
