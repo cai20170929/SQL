@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW1-Q2
+-- Q2
 
 -- Problem 2
 create table MyRestaurants(
