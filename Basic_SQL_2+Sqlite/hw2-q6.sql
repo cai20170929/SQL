@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q6
+-- Q6
 -- Find max price 
 -- Seattle WA <-> New York NY
 -- return carrier and max_price
