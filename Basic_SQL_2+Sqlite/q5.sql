@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q5
+-- Q5
 -- Find all airlines
 -- out of Seattle WA
 -- canceled percent > 0.5
