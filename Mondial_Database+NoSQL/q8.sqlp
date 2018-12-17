@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW5-Q8
+-- Q8
 
 -- Return all landlocked countries.  
 -- A country is landlocked if it borders no sea. 
