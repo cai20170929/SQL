@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW4-Q1
+-- Q1
 
 select p.p1 as p1, max(p.y) as z
 
