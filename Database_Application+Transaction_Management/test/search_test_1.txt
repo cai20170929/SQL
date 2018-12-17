@@ -1,0 +1,57 @@
+#
+# create user and login
+# search direct and indirect flights
+#
+create csecse 1111 1000
+login csecse 1111
+search "New York NY" "Los Angeles CA" 1 2 2
+search "Boston MA" "Seattle WA" 0 5 15
+quit
+*
+#
+# expected printouts for user 1
+#
+Created user csecse
+Logged in as csecse
+Itinerary 0: 1 flight(s), 339 minutes
+ID: 720209 Day: 2 Carrier: B6 Number: 23 Origin: New York NY Dest: Los Angeles CA Duration: 339 Capacity: 9 Price: 563
+Itinerary 1: 1 flight(s), 341 minutes
+ID: 405 Day: 2 Carrier: AA Number: 19 Origin: New York NY Dest: Los Angeles CA Duration: 341 Capacity: 17 Price: 179
+Itinerary 0: 1 flight(s), 350 minutes
+ID: 721177 Day: 5 Carrier: B6 Number: 1607 Origin: Boston MA Dest: Seattle WA Duration: 350 Capacity: 13 Price: 799
+Itinerary 1: 1 flight(s), 351 minutes
+ID: 60489 Day: 5 Carrier: AS Number: 25 Origin: Boston MA Dest: Seattle WA Duration: 351 Capacity: 6 Price: 620
+Itinerary 2: 2 flight(s), 353 minutes
+ID: 760568 Day: 5 Carrier: DL Number: 1748 Origin: Boston MA Dest: Orlando FL Duration: 12 Capacity: 7 Price: 518
+ID: 705735 Day: 5 Carrier: AS Number: 19 Origin: Orlando FL Dest: Seattle WA Duration: 341 Capacity: 6 Price: 921
+Itinerary 3: 1 flight(s), 358 minutes
+ID: 60174 Day: 5 Carrier: AS Number: 15 Origin: Boston MA Dest: Seattle WA Duration: 358 Capacity: 16 Price: 373
+Itinerary 4: 2 flight(s), 358 minutes
+ID: 760568 Day: 5 Carrier: DL Number: 1748 Origin: Boston MA Dest: Orlando FL Duration: 12 Capacity: 7 Price: 518
+ID: 705728 Day: 5 Carrier: AS Number: 9 Origin: Orlando FL Dest: Seattle WA Duration: 346 Capacity: 16 Price: 830
+Itinerary 5: 1 flight(s), 359 minutes
+ID: 705741 Day: 5 Carrier: AS Number: 25 Origin: Boston MA Dest: Seattle WA Duration: 359 Capacity: 12 Price: 966
+Itinerary 6: 1 flight(s), 360 minutes
+ID: 722226 Day: 5 Carrier: B6 Number: 497 Origin: Boston MA Dest: Seattle WA Duration: 360 Capacity: 3 Price: 492
+Itinerary 7: 1 flight(s), 362 minutes
+ID: 722397 Day: 5 Carrier: B6 Number: 907 Origin: Boston MA Dest: Seattle WA Duration: 362 Capacity: 12 Price: 627
+Itinerary 8: 2 flight(s), 365 minutes
+ID: 754828 Day: 5 Carrier: DL Number: 859 Origin: Boston MA Dest: Minneapolis MN Duration: 166 Capacity: 5 Price: 950
+ID: 300967 Day: 5 Carrier: NW Number: 157 Origin: Minneapolis MN Dest: Seattle WA Duration: 199 Capacity: 14 Price: 931
+Itinerary 9: 2 flight(s), 367 minutes
+ID: 754828 Day: 5 Carrier: DL Number: 859 Origin: Boston MA Dest: Minneapolis MN Duration: 166 Capacity: 5 Price: 950
+ID: 300843 Day: 5 Carrier: NW Number: 155 Origin: Minneapolis MN Dest: Seattle WA Duration: 201 Capacity: 11 Price: 755
+Itinerary 10: 2 flight(s), 369 minutes
+ID: 754828 Day: 5 Carrier: DL Number: 859 Origin: Boston MA Dest: Minneapolis MN Duration: 166 Capacity: 5 Price: 950
+ID: 341724 Day: 5 Carrier: NW Number: 1925 Origin: Minneapolis MN Dest: Seattle WA Duration: 203 Capacity: 2 Price: 395
+Itinerary 11: 1 flight(s), 370 minutes
+ID: 706150 Day: 5 Carrier: AS Number: 733 Origin: Boston MA Dest: Seattle WA Duration: 370 Capacity: 15 Price: 552
+Itinerary 12: 2 flight(s), 370 minutes
+ID: 760568 Day: 5 Carrier: DL Number: 1748 Origin: Boston MA Dest: Orlando FL Duration: 12 Capacity: 7 Price: 518
+ID: 60241 Day: 5 Carrier: AS Number: 19 Origin: Orlando FL Dest: Seattle WA Duration: 358 Capacity: 9 Price: 597
+Itinerary 13: 1 flight(s), 374 minutes
+ID: 722275 Day: 5 Carrier: B6 Number: 597 Origin: Boston MA Dest: Seattle WA Duration: 374 Capacity: 19 Price: 879
+Itinerary 14: 1 flight(s), 375 minutes
+ID: 705732 Day: 5 Carrier: AS Number: 15 Origin: Boston MA Dest: Seattle WA Duration: 375 Capacity: 17 Price: 276
+Goodbye
+*

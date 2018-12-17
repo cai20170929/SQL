@@ -1,0 +1,25 @@
+#
+# create user and 
+# re-create user to check failure re-creation
+#
+create csecse 1111 1000
+create csecse 1111 1000
+create csecse 2222 1000
+create csecse 1111 2222
+create csecseeee 1111 2222
+create c 1111 2222
+create 11 11 11
+quit
+*  #  a single * in the beginning separates commands and expected results
+#
+# expected printouts
+#
+Created user csecse
+Failed to create user
+Failed to create user
+Failed to create user
+Created user csecseeee
+Created user c
+Created user 11
+Goodbye
+*

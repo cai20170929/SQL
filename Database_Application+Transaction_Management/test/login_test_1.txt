@@ -1,0 +1,27 @@
+#
+# create user and 
+# check password and
+# check login with incorrect password
+# check login with correct password
+#
+create csecseeee 1111 2222
+create c 1111 2222
+create 11 11 11
+login csecseeee 2222
+login csecseeee 11
+login csecseeee 1111
+login cc 1111 
+quit
+*
+#
+# expected printouts
+#
+Created user csecseeee
+Created user c
+Created user 11
+Login failed
+Login failed
+Logged in as csecseeee
+User already logged in
+Goodbye
+*

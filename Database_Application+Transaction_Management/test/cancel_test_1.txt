@@ -1,0 +1,64 @@
+#
+# create user and login
+# test cancel existed reservations
+# and not existed reservations
+# double cancel reservations
+#
+# user 1
+create csecse 1111 1000
+login csecse 1111
+search "New York NY" "Los Angeles CA" 1 2 2
+book 0
+cancel 0
+cancel 1
+cancel 1
+reservations
+search "New York NY" "Los Angeles CA" 1 5 2
+book 0
+book 1
+reservations
+pay 0
+pay 2
+cancel 2
+reservations
+search "New York NY" "Los Angeles CA" 1 2 2
+book 0
+pay 3
+reservations
+quit
+*
+#
+# expected printouts
+Created user csecse
+Logged in as csecse
+Itinerary 0: 1 flight(s), 339 minutes
+ID: 720209 Day: 2 Carrier: B6 Number: 23 Origin: New York NY Dest: Los Angeles CA Duration: 339 Capacity: 9 Price: 563
+Itinerary 1: 1 flight(s), 341 minutes
+ID: 405 Day: 2 Carrier: AA Number: 19 Origin: New York NY Dest: Los Angeles CA Duration: 341 Capacity: 17 Price: 179
+Booked flight(s), reservation ID: 1
+Failed to cancel reservation 0
+Canceled reservation 1
+Failed to cancel reservation 1
+No reservations found
+Itinerary 0: 1 flight(s), 325 minutes
+ID: 1019303 Day: 5 Carrier: UA Number: 703 Origin: New York NY Dest: Los Angeles CA Duration: 325 Capacity: 11 Price: 731
+Itinerary 1: 1 flight(s), 331 minutes
+ID: 636286 Day: 5 Carrier: AA Number: 255 Origin: New York NY Dest: Los Angeles CA Duration: 331 Capacity: 14 Price: 440
+Booked flight(s), reservation ID: 2
+You cannot book two flights in the same day
+Reservation 2 paid: false:
+ID: 1019303 Day: 5 Carrier: UA Number: 703 Origin: New York NY Dest: Los Angeles CA Duration: 325 Capacity: 11 Price: 731
+Cannot find unpaid reservation 0 under user: csecse
+Paid reservation: 2 remaining balance: 269
+Canceled reservation 2
+No reservations found
+Itinerary 0: 1 flight(s), 339 minutes
+ID: 720209 Day: 2 Carrier: B6 Number: 23 Origin: New York NY Dest: Los Angeles CA Duration: 339 Capacity: 9 Price: 563
+Itinerary 1: 1 flight(s), 341 minutes
+ID: 405 Day: 2 Carrier: AA Number: 19 Origin: New York NY Dest: Los Angeles CA Duration: 341 Capacity: 17 Price: 179
+Booked flight(s), reservation ID: 3
+Paid reservation: 3 remaining balance: 437
+Reservation 3 paid: true:
+ID: 720209 Day: 2 Carrier: B6 Number: 23 Origin: New York NY Dest: Los Angeles CA Duration: 339 Capacity: 9 Price: 563
+Goodbye
+*

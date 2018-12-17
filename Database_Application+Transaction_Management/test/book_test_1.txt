@@ -1,0 +1,37 @@
+#
+# create user and login
+# search direct and indirect flights
+# book some flights
+# and check same day booking
+#
+create csecse 1111 1000
+login csecse 1111
+search "New York NY" "Los Angeles CA" 1 2 2
+book 1
+search "Boston MA" "Seattle WA" 0 5 3
+book 0
+book 1
+book 0
+quit
+*
+#
+# expected printouts
+#
+Created user csecse
+Logged in as csecse
+Itinerary 0: 1 flight(s), 339 minutes
+ID: 720209 Day: 2 Carrier: B6 Number: 23 Origin: New York NY Dest: Los Angeles CA Duration: 339 Capacity: 9 Price: 563
+Itinerary 1: 1 flight(s), 341 minutes
+ID: 405 Day: 2 Carrier: AA Number: 19 Origin: New York NY Dest: Los Angeles CA Duration: 341 Capacity: 17 Price: 179
+Booked flight(s), reservation ID: 1
+Itinerary 0: 1 flight(s), 350 minutes
+ID: 721177 Day: 5 Carrier: B6 Number: 1607 Origin: Boston MA Dest: Seattle WA Duration: 350 Capacity: 13 Price: 799
+Itinerary 1: 1 flight(s), 351 minutes
+ID: 60489 Day: 5 Carrier: AS Number: 25 Origin: Boston MA Dest: Seattle WA Duration: 351 Capacity: 6 Price: 620
+Itinerary 2: 1 flight(s), 358 minutes
+ID: 60174 Day: 5 Carrier: AS Number: 15 Origin: Boston MA Dest: Seattle WA Duration: 358 Capacity: 16 Price: 373
+Booked flight(s), reservation ID: 2
+You cannot book two flights in the same day
+You cannot book two flights in the same day
+Goodbye
+*
