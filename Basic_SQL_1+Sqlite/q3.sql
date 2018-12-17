@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW1-Q3
+-- Q3
 
 .nullvalue NULL
 .mode column
