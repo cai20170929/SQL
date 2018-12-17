@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q8
+-- Q8
 -- Compute total departure delay
 -- return name and delay
 
