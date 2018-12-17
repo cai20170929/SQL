@@ -1,4 +1,4 @@
--- hw3-q6
+-- q6
 -- List names of carriers 
 -- Seattle WA -> San Francisco CA
 -- Return distinct name
