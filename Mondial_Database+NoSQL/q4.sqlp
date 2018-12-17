@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW5-Q4
+-- Q4
 
 -- For each ethnic group, return number of countries where it occurs, 
 -- total population world-wide of that group.  
