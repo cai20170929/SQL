@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q2
+-- Q2
 -- Find all itineraries 
 -- Seattle WA -> 1 stop -> Boston MA
 -- on July 15th same day
