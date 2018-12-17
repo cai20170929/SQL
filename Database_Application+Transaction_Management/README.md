@@ -6,6 +6,6 @@
 
 ###### Interesting info: ʕ•ᴥ•ʔ Initially, it is really hard to start, but just keep coding for several hours and finish the fundamental frame! Coooool application of database help you get basic idea of transaction and concurrency.   
 
-####### Trivial info: It makes sense that SDE for flight booking company earn hign salaries. ☆ﾟ∀ﾟ
+####### Trivial info: It makes sense that SDE for flight booking company earn hign salaries.·∀·
 
 [Reference Website](https://gitlab.cs.washington.edu/maas/cse414-2018au/blob/master/hw/hw8/hw8.md)
