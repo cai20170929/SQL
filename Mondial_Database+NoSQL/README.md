@@ -9,6 +9,8 @@
    SQL++ and AQL. 
 ###### Interesting info: index; btree; keyword 
 
-[Reference Website](https://gitlab.cs.washington.edu/maas/cse414-2018au/blob/master/hw/hw5/hw5.md). 
-[Reference of JSON](https://courses.cs.washington.edu/courses/cse414/18au/lectures/lec12-json-sqlpp-small.pdf). 
-[Reference of AsteroxDB](https://asterixdb.apache.org/docs/0.9.4/index.html). 
+[Reference Website](https://gitlab.cs.washington.edu/maas/cse414-2018au/blob/master/hw/hw5/hw5.md)
+
+[Reference of JSON](https://courses.cs.washington.edu/courses/cse414/18au/lectures/lec12-json-sqlpp-small.pdf)
+
+[Reference of AsteroxDB](https://asterixdb.apache.org/docs/0.9.4/index.html)
