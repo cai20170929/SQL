@@ -4,4 +4,4 @@
 
 ##### 
 
-[Refer](https://gitlab.cs.washington.edu/maas/cse414-2018au/blob/master/hw/hw1/hw1.md)
+[Reference Website](https://gitlab.cs.washington.edu/maas/cse414-2018au/blob/master/hw/hw1/hw1.md)
