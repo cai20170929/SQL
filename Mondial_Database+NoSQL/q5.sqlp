@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW5-Q5
+-- Q5
 
 -- Compute list of all mountains, heights, located countries.  
 -- Join "mountain" collection with "country" collection, on the country code.  
