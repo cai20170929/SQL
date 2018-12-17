@@ -1,4 +1,4 @@
--- hw3-q5
+-- q5
 -- List all cities(NOT Seattle) <- 2 stop(NOT Seattle) <- Seattle WA
 -- output column city
 -- collection of origin_city
