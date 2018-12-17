@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q1
+-- Q1
 -- List distinct flight numbers 
 -- Seattle WA -> Boston MA
 -- by Alaska Airlines Inc.
