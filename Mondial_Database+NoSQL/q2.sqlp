@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW5-Q2
+-- Q2
 
 -- For each country, return name, population, number of religions, 
 -- sorted alphabetically by country. 
