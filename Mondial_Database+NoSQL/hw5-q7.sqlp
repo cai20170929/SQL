@@ -1,0 +1,25 @@
+-- CSE414-cail4
+-- HW5-Q7
+
+-- Find all countries bordering >=2 seas. 
+-- Join "sea" collection with "country" collection.  
+-- For each country in your list, return code, name, list of bordering seas, 
+-- in desc order of  number of seas. 
+-- Name output attributes country_code, country_name, seas.  
+-- The attribute seas should be a list of objects, each with the attribute sea. 
+-- [Result Size: 74 rows of {"country_code":..., "country_name":..., "seas": [{"sea":...}, {"sea":...}, ...]} 
+-- Duration of all jobs: 0.546 sec
+-- Output in output7.txt
+
+use hw5;
+select z.`-car_code` as country_code, 
+       z.`name`as country_name, seas
+from hw5.world as x,
+     x.mondial.country as z
+let seas = (select a.name as sea 
+            from x.mondial.sea as a,
+                 split(a.`-country`, " ") as u 
+            where z.`-car_code` = u)
+where array_count(seas) >= 2
+order by array_count(seas) desc;
+

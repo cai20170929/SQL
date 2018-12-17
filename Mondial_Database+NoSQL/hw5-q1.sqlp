@@ -1,0 +1,21 @@
+-- CSE414-cail4
+-- HW5-Q1
+
+-- Retrieve names of all cities located in Peru, 
+-- sorted alphabetically,
+-- Name output attribute city.
+-- [Result Size: 30 rows of {"city":...}]
+-- Duration of all jobs: 0.565 sec
+-- Output in output1.txt
+
+use hw5;
+select u.name as city
+from hw5.world as x, 
+     x.mondial.country as y,
+     y.province as z,
+     (case when z.city is missing then []
+           when is_array(z.city) THEN z.city
+           else [z.city] end) as u
+where y.name='Peru'
+order by city asc;
+

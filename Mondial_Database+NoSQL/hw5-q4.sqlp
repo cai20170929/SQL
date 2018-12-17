@@ -1,0 +1,26 @@
+-- CSE414-cail4
+-- HW5-Q4
+
+-- For each ethnic group, return number of countries where it occurs, 
+-- total population world-wide of that group.  
+-- Hint: multiply the ethnicity’s percentage with the country’s population.  
+-- Use float(x) and/or int(x) to convert a string to a float or to an int. 
+-- Name output attributes ethnic_group, num_countries, total_population. 
+-- You can leave your final total_population as a float if you like. 
+-- [Result Size: 262 of {"ethnic_group":..., "num_countries":..., "total_population":...} 
+-- Duration of all jobs: 0.231 sec
+-- Output in output4.txt
+
+use hw5;
+select distinct z.`#text` as ethnic_group,
+       count(y.name) as num_countries,
+       sum(float(y.population)*float(z.`-percentage`)*0.01) as total_population
+from hw5.world as x,
+     x.mondial.country as y,
+     (case when y.ethnicgroups is missing then [null]
+           when is_array(y.ethnicgroups) then y.ethnicgroups
+           else [y.ethnicgroups] end) as z
+where z is not null
+GROUP BY z.`#text`
+ORDER BY total_population desc;
+

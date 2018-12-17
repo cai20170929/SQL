@@ -1,0 +1,25 @@
+-- CSE414-cail4
+-- HW5-Q8
+
+-- Return all landlocked countries.  
+-- A country is landlocked if it borders no sea. 
+-- For each country, return code, name, in desc order of country's area. 
+-- Note: this should be an easy query to derive from the previous one. 
+-- Name your output attributes country_code, country_name, area. 
+-- [Result Size: 45 rows of {"country_code":..., "country_name":..., "area":...} 
+-- Duration of all jobs: 0.511 sec
+-- Output in output8.txt
+
+use hw5;
+select z.`-car_code` as country_code, 
+       z.`name`as country_name, 
+       z.`-area` as area
+from hw5.world as x,
+     x.mondial.country as z
+let  seas = (select a.name as sea 
+        from x.mondial.sea as a,
+             split(a.`-country`, " ") as u 
+        where z.`-car_code` = u) 
+where array_count(seas) = 0
+order by float(area) desc;
+

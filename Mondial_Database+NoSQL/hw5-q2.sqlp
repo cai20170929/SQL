@@ -1,0 +1,23 @@
+-- CSE414-cail4
+-- HW5-Q2
+
+-- For each country, return name, population, number of religions, 
+-- sorted alphabetically by country. 
+-- Report 0 religions for countries without religions. 
+-- Name output attributes country, population, num_religions. 
+-- [Result Size:  238 rows of {"num_religions":..., "country":..., "population":...} (order of keys can differ)]
+-- Duration of all jobs: 0.737 sec
+-- Output in output2.txt
+
+use hw5;
+select count(z.`#text`) as num_religions,
+       y.name as country,
+       y.population as population
+from hw5.world as x, 
+     x.mondial.country as y,
+     (case when y.religions is missing then [null]
+           when is_array(y.religions) then y.religions
+           else [y.religions] end) as z
+group by y
+order by y.name asc;
+

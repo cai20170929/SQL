@@ -1,0 +1,22 @@
+-- CSE414-cail4
+-- HW5-Q3
+
+-- For each religion return number of countries where it occurs,
+-- order in desc number of countries,
+-- name output attributes religion, num_countries. 
+-- [Result size: 37 of {"religion':..., "num_countries":...} 
+-- (order of keys can differ)]
+-- Duration of all jobs: 0.328 sec
+-- Output in output3.txt
+
+use hw5;
+SELECT distinct z.`#text` AS religion, count(y.name) as num_countries 
+FROM hw5.world AS x,
+     x.mondial.country AS y,
+     (CASE WHEN y.religions is missing THEN [null]
+           WHEN is_array(y.religions) THEN y.religions
+           ELSE [y.religions] END) AS z
+WHERE z is not null
+GROUP BY z.`#text`
+ORDER BY num_countries DESC, religion ASC;
+

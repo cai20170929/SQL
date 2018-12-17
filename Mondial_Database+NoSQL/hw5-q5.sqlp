@@ -1,0 +1,25 @@
+-- CSE414-cail4
+-- HW5-Q5
+
+-- Compute list of all mountains, heights, located countries.  
+-- Join "mountain" collection with "country" collection, on the country code.  
+-- Return a list consisting of mountain name, height, country code, country name, DESC order height. 
+-- Name output attributes mountain, height, country_code, country_name. 
+-- [Result Size: 272 rows of {"mountain":..., "height":..., "country_code":..., "country_name":...} (order of keys can differ)]
+-- Hint: Some mountains can be located in more than one country. 
+-- Output them for each country they are located in.
+-- Duration of all jobs: 25.437 sec
+-- Output in output5.txt
+
+use hw5;
+select m.name as mountain, 
+       int(m.height) as height, 
+       sc as country_code,
+       c.`name` as country_name
+from hw5.world as x,
+     x.mondial.mountain as m,
+     x.mondial.country as c,
+     split(m.`-country`, ' ') as sc
+where sc = c.`-car_code`
+order by height desc;
+

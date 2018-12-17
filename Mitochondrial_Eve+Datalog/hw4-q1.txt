@@ -1,0 +1,16 @@
+-- CSE414-cail4
+-- HW4-Q1
+
+select p.p1 as p1, max(p.y) as z
+
+from (select pc1.p1 as p1, 
+             count(*) as y
+      from person_living as pl, 
+           parent_child as pc1, 
+           parent_child as pc2
+      where pl.x = pc1.p1 AND 
+            pc1.p2 = pc2.p1
+      group by pc1.p1, pc2.p1) as p
+            
+group by p1;
+

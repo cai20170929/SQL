@@ -1,0 +1,143 @@
+/************ data model **************/
+.symbol_type PersonType
+.symbol_type DescriptionType
+
+.decl person(name:PersonType, description:DescriptionType)
+.input person(filename="DATA/person.facts")
+
+.decl female(name:PersonType)
+.input female(filename="DATA/female.facts")
+
+.decl male(name:PersonType)
+.input male(filename="DATA/male.facts")
+
+.decl parent_child(p1:PersonType, p2:PersonType)
+.input parent_child(filename="DATA/parent_child.facts")
+
+.decl person_living(p:PersonType)
+.input person_living(filename="DATA/person_living.facts")
+
+/************* problem 0 **************/
+/**** Find all children of Priscilla ****/
+.decl p0(x:PersonType, d:DescriptionType)
+.output p0(filename="hw4-0.ans")
+
+// NOTE: if you want to redirect the output to console
+// you can use the syntax:
+/**.output p0(IO=stdout)**/
+p0(x,d) :- parent_child("Priscilla",x), person(x,d).
+
+
+
+// NOTE: DO NOT remove the declarations or the .output statements below.
+// you can ignore any "No rules/facts defined for relation" warnings when you
+// have not defined the rules for those relations
+/************* problem 1 **************/
+/**Find all descendants of Priscilla and their descriptions.**/
+/**Name final output predicate p1(x,d). (123 rows)**/
+.decl p1(x:PersonType,d:DescriptionType)
+.decl Desc(x:PersonType,y:PersonType)
+
+.output p1(filename="hw4-1.ans")
+.output p1(IO=stdout)
+
+Desc(x,y) :- parent_child(x,y).
+Desc(x,z) :- Desc(x,y), parent_child(y,z).
+p1(x,d) :- Desc("Priscilla",x), person(x,d).
+
+
+/************* problem 2 **************/
+/** Find woman and man with the largest number of children **/
+/**For each individual, return the name of individual, description, number of children**/
+/**Name your predicate p2(x,d,n). (2 rows)**/
+
+.decl p2(x:PersonType, d:DescriptionType, m:number)
+.decl FChild(x:PersonType, y:PersonType)
+.decl CountFC(x:PersonType, c:number)
+.decl MaxFC(m:number)
+.decl MaxFN(x:PersonType)
+
+.decl MChild(x:PersonType, y:PersonType)
+.decl CountMC(x:PersonType, c:number)
+.decl MaxMC(m:number)
+.decl MaxMN(x:PersonType)
+
+.output p2(filename="hw4-2.ans")
+.output p2(IO=stdout)
+
+/***Female***/
+FChild(x,y) :- female(x), parent_child(x,y).
+
+CountFC(x,c) :- FChild(x, _), c = count : {FChild(x,_)}.
+
+MaxFC(m) :- m = max c: {CountFC(_,c)}.
+
+MaxFN(x) :- MaxFC(m), CountFC(x,m).
+
+/***Male***/
+MChild(x,y) :- male(x), parent_child(x,y).
+
+CountMC(x,c) :- MChild(x, _), c = count : {MChild(x,_)}.
+
+MaxMC(m) :- m = max c: {CountMC(_,c)}.
+
+MaxMN(x) :- MaxMC(m), CountMC(x,m).
+
+p2(x,d,m) :- MaxFN(x), MaxFC(m), person(x,d).
+p2(x,d,m) :- MaxMN(x), MaxMC(m), person(x,d).
+
+
+/************* problem 3 **************/
+/**a complete lineage: x0=x, … ,xn**/
+/**Compute minimum and maximum generation of each living person x**/
+/**Name p3(x,m1,m2), x: a living person, m1, m2: minimal/maximal generation**/
+/**(22 rows)**/
+
+.decl p3(x:PersonType, m1:number, m2:number)
+.decl pp3(x:PersonType, m1:number, m2:number)
+.decl PrePerson(p:PersonType,x:PersonType,m:number)
+
+.output p3(filename="hw4-3.ans")
+.output p3(IO=stdout)
+
+
+PrePerson(p,x,1) :- person_living(x), parent_child(p, x).
+                          
+PrePerson(pp,x,m+1) :- PrePerson(p,x,m), parent_child(pp, p).
+
+pp3(x,m1,m2) :- PrePerson(p,_,_),!parent_child(_,p),person_living(x),
+                m1 = min c : {PrePerson(p,x,c)},
+                m2 = max c : {PrePerson(p,x,c)}.
+                  
+p3(x,m1,m2) :- pp3(x, _, _),
+               m1 = min a1 : {pp3(x, a1, _)},
+               m2 = max a2 : {pp3(x, _, a2)}.
+
+
+/************* problem 4 **************/
+/*Compute all matrilineal common ancestors, MCA. (6 rows)*/
+.decl p4(x:PersonType)
+.decl NMCA(x:PersonType)
+.decl Mom(x:PersonType, y:PersonType)
+
+.output p4(filename="hw4-4.ans")
+.output p4(IO=stdout)
+
+Mom(x,y) :- female(x), parent_child(x,y).
+Mom(x,z) :- Mom(x,y), parent_child(y,z), female(y).
+
+NMCA(x) :- female(x), Mom(x,p), person_living(p), !Mom(x,p2), person_living(p2).
+p4(x) :- female(x),!NMCA(x),!person_living(x), Mom(x,p), person_living(p).
+
+
+/************* problem 5 **************/
+/*Find the mitochondrial Eve*/
+.decl p5(x:PersonType)
+.decl NEVE(x:PersonType)
+
+.output p5(filename="hw4-5.ans")
+.output p5(IO=stdout)
+
+NEVE(x) :- p4(x),p4(y),Mom(x,y), x!=y.
+p5(x) :- p4(x),!NEVE(x).
+

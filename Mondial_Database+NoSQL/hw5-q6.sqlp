@@ -1,0 +1,28 @@
+-- CSE414-cail4
+-- HW5-Q6
+
+-- Compute a list of countries with all their mountains.  
+-- Group the mountains for each country; 
+-- return both the mountain name and its height.   
+-- Your query should return a list where each element consists of the 
+-- country code, country name, a list of mountain names, heights; 
+-- order countries by number of mountains contain, in desc order. 
+-- Name output attributes country_code, country_name, mountains.
+-- The attribute mountains should be a list of objects, each with the attributes mountain and height. 
+-- [Result Size: 238 rows of {"country_code":..., "country_name":..., 
+-- "mountains": [{"mountain":..., "height":...}, {"mountain":..., "height":...}, ...]} (order of keys can differ)]
+-- Duration of all jobs: 7.126 sec
+-- Output in output6.txt
+
+use hw5;
+select z.`-car_code` as country_code, 
+       z.`name`as country_name,
+       (select a.name as mountain, 
+               a.height as height 
+        from x.mondial.mountain as a,
+             split(a.`-country`, " ") as u 
+        where z.`-car_code` = u) as mountains
+from hw5.world as x,
+     x.mondial.country as z
+order by array_count(mountains) desc;
+

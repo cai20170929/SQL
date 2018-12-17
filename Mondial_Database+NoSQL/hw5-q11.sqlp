@@ -1,0 +1,34 @@
+-- CSE414-cail4
+-- HW5-Q11
+
+-- Re-run the query from 9. 
+-- (“pairs of countries that share both a mountain and a sea”) 
+-- on the new dataverse hw5index.  
+-- Report the new runtime.  
+-- [Result Size: 7 rows of {"first_country":..., "second_country":...}]
+-- Duration of all jobs: 0.241 sec
+-- Output in output11.txt
+
+
+use hw5index;
+select distinct c1.name as first_country,
+       c2.name as second_country
+from country as c1,
+     country as c2,
+     sea as s1,
+     sea as s2,
+     mountain as m1,
+     mountain as m2,
+     split(s1.`-country`, ' ') as sc1,
+     split(s2.`-country`, ' ') as sc2,
+     split(m1.`-country`, ' ') as mc1,
+     split(m2.`-country`, ' ') as mc2
+where c1.name != c2.name AND
+      c1.name < c2.name AND
+      mc1 = c1.`-car_code` AND
+      sc1 = c1.`-car_code` AND
+      mc2 = c2.`-car_code` AND
+      sc2 = c2.`-car_code` AND
+      m1.name = m2.name AND
+      s1.name = s2.name;
+      

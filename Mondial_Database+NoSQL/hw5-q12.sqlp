@@ -1,0 +1,47 @@
+-- CSE414-cail4
+-- HW5-Q11
+
+-- Modify the query from 11. to return, 
+-- for each pair of countries, list of common mountains, 
+-- list of common seas. 
+-- Name output attributes first_country, second_country, mountain, sea. 
+-- [Result Size: 7 rows of {"mountains":[{"mountain":...}, ...], 
+-- "seas":[{"sea":...}, ...], "first_country":..., "second_country":...}]
+-- Duration of all jobs: 0.279 sec
+-- Output in output12.txt
+
+use hw5index;
+select distinct c1.name as first_country,
+       c2.name as second_country,
+       mountains,seas
+       
+from country as c1,
+     country as c2,
+     sea as s1,
+     sea as s2,
+     mountain as m1,
+     mountain as m2,
+     split(s1.`-country`, ' ') as sc1,
+     split(s2.`-country`, ' ') as sc2,
+     split(m1.`-country`, ' ') as mc1,
+     split(m2.`-country`, ' ') as mc2
+let mountains = (select m3.name as mountain 
+        from mountain as m3,
+             split(m3.`-country`, ' ') as mc3, 
+             split(m3.`-country`, ' ') as mc4
+        where mc3 = c1.`-car_code` AND mc4 = c2.`-car_code`),
+    seas = (select s3.name as sea 
+        from sea as s3,
+             split(s3.`-country`, ' ') as sc3, 
+             split(s3.`-country`, ' ') as sc4
+        where sc3 = c1.`-car_code` AND sc4 = c2.`-car_code`)
+     
+where c1.name != c2.name AND
+      c1.name < c2.name AND
+      mc1 = c1.`-car_code` AND
+      sc1 = c1.`-car_code` AND
+      mc2 = c2.`-car_code` AND
+      sc2 = c2.`-car_code` AND
+      m1.name = m2.name AND
+      s1.name = s2.name;
+    
