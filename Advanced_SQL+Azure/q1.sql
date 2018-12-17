@@ -1,4 +1,4 @@
--- hw3-q1
+-- q1
 -- Find orig->dest city with longest direct flight in time
 -- no duplicates of same origin/destination city pair
 -- output columns origin_city, dest_city, time 
