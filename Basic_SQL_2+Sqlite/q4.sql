@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q4
+-- Q4
 -- Find names of all airlines
 -- flew > 1000 flights one day
 -- return distinct name
