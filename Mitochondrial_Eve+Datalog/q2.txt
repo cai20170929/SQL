@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW4-Q2
+-- Q2
 
 --SELECT a.p
 --FROM   person_living AS a, male AS b
