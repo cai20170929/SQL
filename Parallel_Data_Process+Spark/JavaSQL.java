@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Collections;
 
-public class HW6 {
+public class JavaSQL {
 
   // the full input data file is at s3://us-east-1.elasticmapreduce.samples/flightdata/input
 
@@ -20,7 +20,7 @@ public class HW6 {
   public static void main(String[] args) {
 
     if (args.length < 2)
-      throw new RuntimeException("Usage: HW6 <datafile location> <output location>");
+      throw new RuntimeException("Usage: JavaSQL <datafile location> <output location>");
 
     String dataFile = args[0];
     String output = args[1];
@@ -30,10 +30,10 @@ public class HW6 {
     Logger.getLogger("org.apache.spark.storage.BlockManager").setLevel(Level.ERROR);
 
     // use this for running locally
-    //SparkSession spark = SparkSession.builder().appName("HW6").config("spark.master", "local").getOrCreate();
+    //SparkSession spark = SparkSession.builder().appName("JavaSQL").config("spark.master", "local").getOrCreate();
 
     // use this for running on ec2
-    SparkSession spark = SparkSession.builder().appName("HW6").getOrCreate();
+    SparkSession spark = SparkSession.builder().appName("JavaSQL").getOrCreate();
 
     //Dataset<Row> r = warmup(spark, dataFile);
     //r.javaRDD().repartition(1).saveAsTextFile(output);
