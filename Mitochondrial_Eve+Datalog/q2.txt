@@ -7,8 +7,19 @@
 --                   FROM   parent_child AS c, female AS d 
 --                  WHERE  c.p1=d.name AND c.p2=a.p)
 
-T1(p) = person_living(p) Join[p=name] male(name)
-T2(p1,p2,name) = parent_child(p1,p2) Join[p1=name] female(name)
-T3(p) = T2(p1,p2,name) Join[p2=p] person_living(p)
-T4(p) = T1(p) Difference T3(p)
+--T1(p) = person_living(p) Join[p=name] male(name)
+--T2(p1,p2,name) = parent_child(p1,p2) Join[p1=name] female(name)
+--T3(p) = T2(p1,p2,name) Join[p2=p] person_living(p)
+--T4(p) = T1(p) Difference T3(p)
+
+-- Select child of parent_child when parent is female
+T1(p2) = parent_child(p1, p2) Join[p1=name] female(name)
+-- Select living person when child of parent_child is a living person
+T2(p) = parent_child(_, p2) Join[p2=p] person_living(p)
+-- Select male living person
+T3(p) = person_living(p) Join[p=name] male(name)
+-- Select T3 without T2
+T4(p) = T3(p) Difference T2(p)
+
+
 
