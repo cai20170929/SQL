@@ -1,4 +1,4 @@
--- hw3-q4
+-- q4
 -- List all cities(NOT Seattle) <- 1 stop(NOT Seattle) <- Seattle WA
 -- output column city
 
