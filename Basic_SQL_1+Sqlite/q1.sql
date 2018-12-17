@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW1-Q1
+-- Q1
 
 create table Edges(
    Source int,
