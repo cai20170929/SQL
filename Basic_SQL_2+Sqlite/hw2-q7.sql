@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW2-Q7
+-- Q7
 -- Find total capacity 
 -- Seattle WA <-> San Francisco CA
 -- July 10th
