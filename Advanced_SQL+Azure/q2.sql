@@ -1,4 +1,4 @@
--- hw3-q2
+-- q2
 -- Find all origin distinct cities 
 -- flights(null) < 3 hr
 -- output column city
