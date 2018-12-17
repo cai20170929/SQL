@@ -1,4 +1,4 @@
--- hw3-q3
+-- q3
 -- Find percentage of departing flights < 3 hr or not NULL
 -- output columns origin_city and percentage
 -- order by percentage value
