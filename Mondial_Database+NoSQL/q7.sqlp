@@ -1,5 +1,4 @@
--- CSE414-cail4
--- HW5-Q7
+-- Q7
 
 -- Find all countries bordering >=2 seas. 
 -- Join "sea" collection with "country" collection.  
